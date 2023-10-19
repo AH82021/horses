@@ -1,9 +1,8 @@
 package com.binaryCars.horses.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Owner {
@@ -13,12 +12,14 @@ public class Owner {
 
     private String firstName;
     private String lastName;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
+
+    private List<Car> cars;
 
     public Owner() {
     }
 
-    public Owner(Long ownerId, String firstName, String lastName) {
-        this.ownerId = ownerId;
+    public Owner( String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -45,5 +46,13 @@ public class Owner {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }
