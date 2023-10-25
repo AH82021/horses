@@ -1,6 +1,7 @@
 package com.binaryCars.horses.entity;
 
 import jakarta.persistence.*;
+import org.springframework.lang.NonNull;
 
 import java.lang.annotation.Target;
 
@@ -49,7 +50,6 @@ public class Car {
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getMake() {
         return make;
     }

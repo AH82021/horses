@@ -26,4 +26,23 @@ public class CarServiceImpl implements CarService{
     public Car saveCar(Car car) {
         return carRepository.save(car);
     }
+
+    @Override
+    public Car updateCar(Long id, Car car) {
+        Car existingCar = getCarById(id);
+        existingCar.setMake(car.getMake());
+        existingCar.setModel(car.getModel());
+        existingCar.setColor(car.getColor());
+        existingCar.setRegisterNumber(car.getRegisterNumber());
+        existingCar.setYear(car.getYear());
+        existingCar.setPrice(car.getPrice());
+carRepository.save(existingCar);
+        return existingCar;
+    }
+
+    @Override
+    public void deleteCar(Long id) {
+
+        carRepository.deleteById(id);
+    }
 }
