@@ -9,6 +9,4 @@ import java.util.List;
 @Repository
 public interface CarRepository extends CrudRepository<Car,Long> {
 
-//    List<Car> findCarByMake(String make);
-//    List<Car> findCarByMakeOrderByYearAsc(String make);
 }
